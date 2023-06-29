@@ -42,6 +42,6 @@ export const post: APIRoute = async ({ request, cookies }) => {
 	}
 
 	const game = await makeGame(user.id, unprotected, name ?? undefined, code ?? undefined, tutorialName ?? undefined)
-	if (unprotected) await mail(user.email, tempGameTemplate(user, game))
+	// if (unprotected) await mail(user.email, tempGameTemplate(user, game))
 	return new Response(JSON.stringify({ game, sessionInfo }), { status: 200 })
 }
