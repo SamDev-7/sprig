@@ -189,7 +189,7 @@ onInput("d", function() {
 
 ## Step 6
 
-Congratulations! You just made a game. 🥳
+Congratulations! You just made a game. 🥳  
 **Now solve the puzzle you just created! Make sure that nothing is broken.**
 
 ## I'm done, now what?
