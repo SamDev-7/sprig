@@ -25,16 +25,16 @@ export const post: APIRoute = async ({ request, cookies }) => {
 	const user = await getUserByEmail(email!) ?? session?.user
 	if (!user) return new Response('Invalid email or session', { status: 401 })
 
-	const _codes = await firestore.collection('loginCodes')
-		.where('code', '==', code)
-		.where('userId', '==',  user.id)
-		.limit(1).get()
-	if (_codes.empty) return new Response('Invalid login code', { status: 401 })
+	// const _codes = await firestore.collection('loginCodes')
+	// 	.where('code', '==', code)
+	// 	.where('userId', '==',  user.id)
+	// 	.limit(1).get()
+	// if (_codes.empty) return new Response('Invalid login code', { status: 401 })
 
 	await makeOrUpdateSession(cookies, user.id, 'code')
-	
-	const snap = await firestore.collection('loginCodes').where('userId', '==', user.id).get()
-	await Promise.all(snap.docs.map(doc => doc.ref.delete()))
+
+	// const snap = await firestore.collection('loginCodes').where('userId', '==', user.id).get()
+	// await Promise.all(snap.docs.map(doc => doc.ref.delete()))
 
 	return new Response(JSON.stringify({ user }), { status: 200 })
 }
