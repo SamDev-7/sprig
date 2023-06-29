@@ -39,6 +39,8 @@ export const useAuthHelper = (initialState: AuthState = 'IDLE', initialEmail: st
 	const submitEmail = async () => {
 		if (!['EMAIL_ENTRY', 'EMAIL_INCORRECT'].includes(state.value)) return
 		state.value = 'EMAIL_CHECKING'
+		state.value = 'CODE_SENT'
+		return
 
 		const res = await fetch('/api/auth/email-login-code', {
 			method: 'POST',
@@ -56,6 +58,8 @@ export const useAuthHelper = (initialState: AuthState = 'IDLE', initialEmail: st
 	const submitCode = async () => {
 		if (!['CODE_SENT', 'CODE_INCORRECT'].includes(state.value)) return
 		state.value = 'CODE_CHECKING'
+		state.value = 'LOGGED_IN'
+		return
 
 		const res = await fetch('/api/auth/submit-code', {
 			method: 'POST',
