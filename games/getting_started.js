@@ -89,7 +89,7 @@ let level = 0; // this tracks the level we are on
 const levels = [
   map`
 ..p.
-..bg
+.b.g
 ....`,
   map`
 p..
