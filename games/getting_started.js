@@ -1,6 +1,9 @@
 /*
 @title: getting_started
 @author: leo, edits: samliu
+
+Check the tutorial in the bottom right, the run button is in the top right.
+Make sure to remix this tutorial if you want to save your progress!
 */
 
 // define the sprites in our game
@@ -115,7 +118,7 @@ p.w.
 const currentLevel = levels[level];
 setMap(currentLevel);
 
-setSolids([ player, box, wall ]); // these blocks cannot be pushed by others
+setSolids([ player, box, wall ]); // sprites cannot go inside of these blocks
 
 // allow certain sprites to push certain other sprites
 setPushables({
@@ -142,7 +145,7 @@ onInput("j", () => {
   }
 });
 
-// These get run after every input
+// these get run after every input
 afterInput(() => {
   // count the number of tiles with goals
   const targetNumber = tilesWith(goal).length;
