@@ -26,23 +26,23 @@ interface CaptchaAssessment {
 }
 
 export const assessCaptcha = async (token: string, expectedAction: string): Promise<number> => {
-	const res = await fetch(`https://recaptchaenterprise.googleapis.com/v1/projects/spriggety-sprig/assessments?key=${import.meta.env.RECAPTCHA_API_KEY}`, {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify({
-			event: {
-				token,
-				siteKey: recaptchaKeyId,
-				expectedAction
-			}
-		})
-	})
-	if (!res.ok) throw new Error(`Failed to get captcha score (${res.status})`)
+	// const res = await fetch(`https://recaptchaenterprise.googleapis.com/v1/projects/spriggety-sprig/assessments?key=${import.meta.env.RECAPTCHA_API_KEY}`, {
+	// 	method: 'POST',
+	// 	headers: { 'Content-Type': 'application/json' },
+	// 	body: JSON.stringify({
+	// 		event: {
+	// 			token,
+	// 			siteKey: recaptchaKeyId,
+	// 			expectedAction
+	// 		}
+	// 	})
+	// })
+	// if (!res.ok) throw new Error(`Failed to get captcha score (${res.status})`)
 
-	const assessment: CaptchaAssessment = await res.json()
-	if (!assessment.tokenProperties.valid) throw new Error('Invalid captcha token')
-	if (assessment.event.expectedAction !== expectedAction) throw new Error('Invalid captcha action')
-	if (assessment.event.siteKey !== recaptchaKeyId) throw new Error('Invalid captcha key')
+	// const assessment: CaptchaAssessment = await res.json()
+	// if (!assessment.tokenProperties.valid) throw new Error('Invalid captcha token')
+	// if (assessment.event.expectedAction !== expectedAction) throw new Error('Invalid captcha action')
+	// if (assessment.event.siteKey !== recaptchaKeyId) throw new Error('Invalid captcha key')
 
-	return assessment.riskAnalysis.score
+	return 1 //assessment.riskAnalysis.score
 }
