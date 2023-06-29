@@ -118,7 +118,7 @@ p.w.
 const currentLevel = levels[level];
 setMap(currentLevel);
 
-setSolids([ player, box, wall ]); // sprites cannot go inside of these blocks
+setSolids([ player, box, wall ]); // other sprites cannot go inside of these sprites
 
 // allow certain sprites to push certain other sprites
 setPushables({
