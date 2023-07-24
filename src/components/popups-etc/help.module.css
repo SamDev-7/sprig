@@ -18,13 +18,13 @@
 	background: var(--accent);
 	width: fit-content;
 	color: #ffffff;
-	padding: 6px 10px;
+	padding: 6px 12px;
 	display: flex;
 	flex-direction: row;
 	gap: 4px;
 	align-items: center;
 	user-select: none;
-	cursor: var(--pointer-interactive);
+	cursor: var(--cursor-interactive);
 	z-index: 1;
 	border: solid var(--accent-dark);
 	border-width: 0;
@@ -37,7 +37,9 @@
 }
 
 .tab:last-of-type {
-	border-right-width: 0;
+    border-right-width: 0;
+    padding-left: 8px;
+    padding-right: 10px;
 }
 
 .tab.selected {
@@ -117,5 +119,9 @@
 }
 
 .content summary {
-	cursor: var(--pointer-interactive);
+	cursor: var(--cursor-interactive);
+}
+
+.content summary:hover {
+	color: var(--accent-dark);
 }
